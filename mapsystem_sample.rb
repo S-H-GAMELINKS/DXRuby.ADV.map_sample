@@ -15,9 +15,15 @@ map = Image.load("map.png")
 #マップ描画ループ
 Window.loop do
 
+#マウスの位置を取得
+x = Input.mouse_x
+y = Input.mouse_y
+
 	#マップの描画
 	Window.draw(0, 0, map, 1)
 
+	#地名(アクセスポイント)の□描画
+	
 
 	#エスケープキーでループを抜ける
 	if Input.key_push?(K_ESCAPE) then
