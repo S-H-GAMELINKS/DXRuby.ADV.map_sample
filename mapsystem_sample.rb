@@ -1,59 +1,59 @@
 # coding: shift_jis
 
-#Ÿ‰ñg—p—\’è‚Ìƒ}ƒbƒvƒVƒXƒeƒ€ˆÄ
+#æ¬¡å›ä½¿ç”¨äºˆå®šã®ãƒãƒƒãƒ—ã‚·ã‚¹ãƒ†ãƒ æ¡ˆ
 
-#DXRuby‚Ì“Ç
+#DXRubyã®èª­è¾¼
 require 'dxruby'
 
-#’n–¼•`‰æƒƒ\ƒbƒh‚Ì“Ç
+#åœ°åæç”»ãƒ¡ã‚½ãƒƒãƒ‰ã®èª­è¾¼
 require_relative 'map_name'
 
-#ƒ^ƒCƒgƒ‹–¼
-Window.caption = ("Ÿ‰ñì—pƒ}ƒbƒvƒVƒXƒeƒ€ˆÄ")
+#ã‚¿ã‚¤ãƒˆãƒ«å
+Window.caption = ("æ¬¡å›ä½œç”¨ãƒãƒƒãƒ—ã‚·ã‚¹ãƒ†ãƒ æ¡ˆ")
 
-#ƒ}ƒbƒv‰æ‘œ‚Ì“Ç
+#ãƒãƒƒãƒ—ç”»åƒã®èª­è¾¼
 map = Image.new(640, 480, [0, 0, 0, 0])
 map = Image.load("map.png")
 
-#ƒtƒHƒ“ƒgƒTƒCƒY
+#ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º
 map_font = Font.new(32)
 font = Font.new(26)
 
-#ƒ}ƒbƒv–¼•Ï”
-map_name = "o‰_‚Ì‘"
+#ãƒãƒƒãƒ—åå¤‰æ•°
+map_name = "å‡ºé›²ã®å›½"
 ap_name = ""
 
-#ƒ}ƒbƒv•`‰æƒ‹[ƒv‚ÌFPS
-Window.fps = 999
+#ãƒãƒƒãƒ—æç”»ãƒ«ãƒ¼ãƒ—ã®FPS
+Window.fps = 60
 
-#ƒ}ƒbƒv•`‰æƒ‹[ƒv
+#ãƒãƒƒãƒ—æç”»ãƒ«ãƒ¼ãƒ—
 Window.loop do
 
-	#ƒ}ƒEƒX‚ÌˆÊ’u‚ğæ“¾
+	#ãƒã‚¦ã‚¹ã®ä½ç½®ã‚’å–å¾—
 	x = Input.mouse_x
 	y = Input.mouse_y
 
-	#ƒ}ƒEƒXˆÊ’u‚Åƒ}ƒbƒv–¼‚ğ•ÏX
+	#ãƒã‚¦ã‚¹ä½ç½®ã§ãƒãƒƒãƒ—åã‚’å¤‰æ›´
 	ap_name = map_name(x, y, ap_name)
 
-	#ƒ}ƒbƒv‚Ì•`‰æ
+	#ãƒãƒƒãƒ—ã®æç”»
 	Window.draw(0, 0, map, 1)
 
-	#’n–¼(ƒAƒNƒZƒXƒ|ƒCƒ“ƒg)‚ÌŸ•`‰æ
-	Window.draw_font(120, 80, "Ÿ", map_font, color: [0, 0, 0], z:2)	#“úŒäê“”‘ä
-	Window.draw_font(40, 180, "Ÿ", map_font, color: [0, 0, 0], z:2)	#ˆî²‚Ì•l
-	Window.draw_font(160, 170, "Ÿ", map_font, color: [0, 0, 0], z:2)	#o‰_‘åĞ
-	Window.draw_font(220, 230, "Ÿ", map_font, color: [0, 0, 0], z:2)	#‹Œ‘åĞ‰w
-	Window.draw_font(200, 380, "Ÿ", map_font, color: [0, 0, 0], z:2)	#{²_Ğ
-	Window.draw_font(350, 300, "Ÿ", map_font, color: [0, 0, 0], z:2)	#—§‹vŒb‹¬
+	#åœ°å(ã‚¢ã‚¯ã‚»ã‚¹ãƒã‚¤ãƒ³ãƒˆ)ã®â—†æç”»
+	Window.draw_font(120, 80, "â—†", map_font, color: [0, 0, 0], z:2)	#æ—¥å¾¡ç¢•ç¯å°
+	Window.draw_font(40, 180, "â—†", map_font, color: [0, 0, 0], z:2)	#ç¨²ä½ã®æµœ
+	Window.draw_font(160, 170, "â—†", map_font, color: [0, 0, 0], z:2)	#å‡ºé›²å¤§ç¤¾
+	Window.draw_font(220, 230, "â—†", map_font, color: [0, 0, 0], z:2)	#æ—§å¤§ç¤¾é§…
+	Window.draw_font(200, 380, "â—†", map_font, color: [0, 0, 0], z:2)	#é ˆä½ç¥ç¤¾
+	Window.draw_font(350, 300, "â—†", map_font, color: [0, 0, 0], z:2)	#ç«‹ä¹…æµå³¡
 
-	#’n–¼iƒAƒNƒZƒXƒ|ƒCƒ“ƒgj‚Ì•`‰æ
+	#åœ°åï¼ˆã‚¢ã‚¯ã‚»ã‚¹ãƒã‚¤ãƒ³ãƒˆï¼‰ã®æç”»
 	Window.draw_font(500, 200, ap_name, font, z:2)
 
-	#ƒ}ƒbƒv–¼•`‰æ
+	#ãƒãƒƒãƒ—åæç”»
 	Window.draw_font(500, 450, map_name, font, z:2)
 
-	#ƒGƒXƒP[ƒvƒL[‚Åƒ‹[ƒv‚ğ”²‚¯‚é
+	#ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã‚­ãƒ¼ã§ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹
 	if Input.key_push?(K_ESCAPE) then
 		break
 	end
