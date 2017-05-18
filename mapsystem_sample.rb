@@ -1,59 +1,75 @@
 # coding: shift_jis
 
-#æ¬¡å›ä½¿ç”¨äºˆå®šã®ãƒãƒƒãƒ—ã‚·ã‚¹ãƒ†ãƒ æ¡ˆ
-
-#DXRubyã®èª­è¾¼
+#Ÿ‰ñg—p—\’è‚Ìƒ}ƒbƒvƒVƒXƒeƒ€ˆÄ
+#DXRuby‚Ì“Ç
 require 'dxruby'
 
-#åœ°åæç”»ãƒ¡ã‚½ãƒƒãƒ‰ã®èª­è¾¼
-require_relative 'map_name'
+#ƒ^ƒCƒgƒ‹–¼
+Window.caption = ("Ÿ‰ñì—pƒ}ƒbƒvƒVƒXƒeƒ€ˆÄ")
 
-#ã‚¿ã‚¤ãƒˆãƒ«å
-Window.caption = ("æ¬¡å›ä½œç”¨ãƒãƒƒãƒ—ã‚·ã‚¹ãƒ†ãƒ æ¡ˆ")
+#ƒ}ƒbƒv‰æ‘œ‚Ì“Ç
+map = Sprite.new(0, 0, Image.load( "map.png"))
+ap1 = Sprite.new(120, 80, Image.load("ap.png"))
+ap2 = Sprite.new(40, 180, Image.load("ap.png"))
+ap3 = Sprite.new(160, 170, Image.load("ap.png"))
+ap4 = Sprite.new(220, 230, Image.load("ap.png"))
+ap5 = Sprite.new(200, 380, Image.load("ap.png"))
+ap6 = Sprite.new(350, 300, Image.load("ap.png"))
 
-#ãƒãƒƒãƒ—ç”»åƒã®èª­è¾¼
-map = Image.new(640, 480, [0, 0, 0, 0])
-map = Image.load("map.png")
 
-#ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º
+#ƒ}ƒEƒX‚Ìì¬
+mouse = Sprite.new(0, 0, Image.new(10, 10, C_WHITE))
+
+#ƒtƒHƒ“ƒgƒTƒCƒY
 map_font = Font.new(32)
 font = Font.new(26)
 
-#ãƒãƒƒãƒ—åå¤‰æ•°
-map_name = "å‡ºé›²ã®å›½"
-ap_name = ""
-
-#ãƒãƒƒãƒ—æç”»ãƒ«ãƒ¼ãƒ—ã®FPS
-Window.fps = 60
-
-#ãƒãƒƒãƒ—æç”»ãƒ«ãƒ¼ãƒ—
+#ƒ}ƒbƒv•`‰æƒ‹[ƒv
 Window.loop do
 
-	#ãƒã‚¦ã‚¹ã®ä½ç½®ã‚’å–å¾—
-	x = Input.mouse_x
-	y = Input.mouse_y
+	#ƒ}ƒEƒX‚ÌˆÊ’u‚ğæ“¾
+	mouse.x, mouse.y = Input.mouse_x, Input.mouse_y
 
-	#ãƒã‚¦ã‚¹ä½ç½®ã§ãƒãƒƒãƒ—åã‚’å¤‰æ›´
-	ap_name = map_name(x, y, ap_name)
+	#ƒ}ƒbƒv‚Ì•`‰æ
+	map.draw
 
-	#ãƒãƒƒãƒ—ã®æç”»
-	Window.draw(0, 0, map, 1)
+	#’n–¼(ƒAƒNƒZƒXƒ|ƒCƒ“ƒg)‚ÌŸ•`‰æ
+	ap1.draw
+	ap2.draw
+	ap3.draw
+	ap4.draw
+	ap5.draw
+	ap6.draw
 
-	#åœ°å(ã‚¢ã‚¯ã‚»ã‚¹ãƒã‚¤ãƒ³ãƒˆ)ã®â—†æç”»
-	Window.draw_font(120, 80, "â—†", map_font, color: [0, 0, 0], z:2)	#æ—¥å¾¡ç¢•ç¯å°
-	Window.draw_font(40, 180, "â—†", map_font, color: [0, 0, 0], z:2)	#ç¨²ä½ã®æµœ
-	Window.draw_font(160, 170, "â—†", map_font, color: [0, 0, 0], z:2)	#å‡ºé›²å¤§ç¤¾
-	Window.draw_font(220, 230, "â—†", map_font, color: [0, 0, 0], z:2)	#æ—§å¤§ç¤¾é§…
-	Window.draw_font(200, 380, "â—†", map_font, color: [0, 0, 0], z:2)	#é ˆä½ç¥ç¤¾
-	Window.draw_font(350, 300, "â—†", map_font, color: [0, 0, 0], z:2)	#ç«‹ä¹…æµå³¡
+	#Še’n–¼(ƒAƒNƒZƒXƒ|ƒCƒ“ƒg)‚Éƒ}ƒEƒX‚ªÚG‚·‚é‚Æ’n–¼•`‰æ
+	if mouse === ap1 then
+		Window.draw_font(500, 200, "“úŒäê“”‘ä", font, z:2)
+	end
 
-	#åœ°åï¼ˆã‚¢ã‚¯ã‚»ã‚¹ãƒã‚¤ãƒ³ãƒˆï¼‰ã®æç”»
-	Window.draw_font(500, 200, ap_name, font, z:2)
+	if mouse === ap2 then
+		Window.draw_font(500, 200, "ˆî²‚Ì•l", font, z:2)
+	end
 
-	#ãƒãƒƒãƒ—åæç”»
-	Window.draw_font(500, 450, map_name, font, z:2)
+	if mouse === ap3 then
+		Window.draw_font(500, 200, "o‰_‘åĞ", font, z:2)
+	end
 
-	#ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã‚­ãƒ¼ã§ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹
+	if mouse === ap4 then
+		Window.draw_font(500, 200, "‹Œ‘åĞ‰w", font, z:2)
+	end
+
+	if mouse === ap5 then
+		Window.draw_font(500, 200, "{²_Ğ", font, z:2)
+	end
+
+	if mouse === ap6 then
+		Window.draw_font(500, 200, "—§‹vŒb‹¬", font, z:2)
+	end
+
+	#’n–¼iƒAƒNƒZƒXƒ|ƒCƒ“ƒgj‚Ì•`‰æ
+	Window.draw_font(500, 450, "o‰_‚Ì‘", font, z:2)
+
+	#ƒGƒXƒP[ƒvƒL[‚Åƒ‹[ƒv‚ğ”²‚¯‚é
 	if Input.key_push?(K_ESCAPE) then
 		break
 	end
